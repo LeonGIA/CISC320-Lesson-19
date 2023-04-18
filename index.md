@@ -3,12 +3,12 @@
 **CISC320 Spring 2023 Lesson 19 - Graph Applications**
 
 Group Members:
-* philong@udel.edu
+* Leon Giang (philong@udel.edu)
 * ebrignac@udel.edu 
 * jfmarks@udel.edu
 * Patrick Brady (pbrady@udel.edu)
 
-Description of project
+Creating various related graphs for use in creative problem-solving algorithms utilizing python's popular networkx library.
 
 ## Installation Code
 
@@ -27,9 +27,9 @@ import networkx as nx
 
 **Informal Description**: BFS problem that enables you to find all the courses which list your given course as a prereq. Essentially, you can find what courses you can now take given you have taken the specified course.
 
-> **Formal Description**: 
->  * Input: A Course ID and the MATH course graph
->  * Output: The children of the Course ID
+> **Formal Description**: Given a Course ID, find all of its direct children.
+>  * Input: A Course ID, with a space between the course and its number, and an adjacency dictionary that lists each node as keys and their parents as values.
+>  * Output: The direct children of the Course ID. If there are no children, returns a message informing the user that no courses list the given course as a prereq. If the node does not exist, returns a networkx error indicating that the node could not be found.
 
 **Graph Problem/Algorithm**: [BFS]
 
@@ -133,7 +133,7 @@ Joe needs to figure out what the easiest path of prerequisites can be taken to g
 >  * Input: 'ECON 101', 'ECON 490', and the ECON course graph
 >  * Output: (['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
 
-**Graph Problem/Algorithm**: [BFS]
+**Graph Problem/Algorithm**: [SSSP]
 
 
 **Setup code**:
@@ -198,9 +198,7 @@ Joe needs to figure out what the easiest path of prerequisites can be taken to g
             counter += 1
             # add the edge between the node and the adjacent node
             g.add_edge(adjacent_node, node, weight=counter % 7)
-
-
-
+            
 ```
 
 **Visualization**:
@@ -224,10 +222,7 @@ def find_path(source: str, destination: str, g: nx.DiGraph):
 (['ECON 101', 'ECON 251', 'ECON 490'], 'weight = 4')
 ```
 
-**Interpretation of Results**:
-	the shortest_path function in the nx library uses Dijkstra's algorithm by default to find the shortest path from one node to another node.
-
-
+**Interpretation of Results**: the shortest_path function in the nx library uses Dijkstra's algorithm by default to find the shortest path from one node to another node.
 
 
 # Using DFS to find the lowest CISC course number in the graph
