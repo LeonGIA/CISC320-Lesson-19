@@ -207,7 +207,8 @@ Joe needs to figure out what the easiest path of prerequisites can be taken to g
 
 **Solution code:**
 
-```# the source and destination must be formatted as 'ECON ###' with an existing course #
+```python
+# the source and destination must be formatted as 'ECON ###' with an existing course #
 def find_path(source: str, destination: str, g: nx.DiGraph):
     if nx.has_path(g, source=source, target=destination):
         solution = nx.shortest_path(g, source=source, target=destination, weight='weight')
@@ -329,12 +330,6 @@ CISC 108
 **Interpretation of Results**:
 	The Depth first search algorith scans over all of the nodes in the graph so we can use
     it to find the node with the smallest course number. 
-
-
-
-
-
-
 
 
 # Calculating Minimum Networking Cost using a Minimum Spanning Tree
